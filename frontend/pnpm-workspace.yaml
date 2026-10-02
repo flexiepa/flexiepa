@@ -1,0 +1,22 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+catalog:
+  # Keep @types/node major in sync with node in /.prototools (currently 26.10.0)
+  '@tanstack/devtools-vite': ^0.8.5
+  '@tanstack/solid-devtools': ^0.8.13
+  '@tanstack/solid-router': ^1.170.38
+  '@tanstack/solid-router-devtools': ^1.167.2
+  '@tanstack/solid-start': ^1.168.57
+  '@types/node': ^26.6.4
+  eslint-plugin-solid: ^0.18.0
+  oxfmt: ^0.71.0
+  oxlint: ^1.86.0
+  solid-js: ^1.9.15
+  typescript: ~6.0.2
+  vite: ^8.3.0
+  vite-plugin-solid: ^2.11.14
+
+minimumReleaseAgeExclude:
+  - '@types/node@26.6.4'

@@ -1,0 +1,36 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+id: 'api'
+layer: 'application'
+language: 'rust'
+stack: 'backend'
+tags: ['backend', 'rust', 'axum']
+
+tasks:
+  dev:
+    description: 'Run the Axum API in debug mode'
+    command: 'cargo'
+    args: ['run', '-p', 'api']
+    preset: 'server'
+
+  build:
+    description: 'Build the API binary'
+    command: 'cargo'
+    args: ['build', '-p', 'api']
+    inputs:
+      - '@group(sources)'
+      - '/backend/Cargo.toml'
+      - '/backend/Cargo.lock'
+    options:
+      cache: true
+
+  check:
+    description: 'Typecheck the API crate'
+    command: 'cargo'
+    args: ['check', '-p', 'api']
+    inputs:
+      - '@group(sources)'
+      - '/backend/Cargo.toml'
+      - '/backend/Cargo.lock'
+    options:
+      cache: true

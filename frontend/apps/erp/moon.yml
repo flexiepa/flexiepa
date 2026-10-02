@@ -1,0 +1,35 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+id: 'erp'
+layer: 'application'
+language: 'typescript'
+stack: 'frontend'
+tags: ['frontend', 'solid', 'tanstack-start']
+
+tasks:
+  typecheck:
+    script: 'tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json'
+
+  dev:
+    description: 'Start the ERP TanStack Start dev server'
+    command: 'vite'
+    args: ['dev']
+    preset: 'server'
+
+  build:
+    description: 'Build the ERP app (SPA mode)'
+    command: 'vite'
+    args: ['build']
+    deps: ['~:typecheck']
+    inputs:
+      - '@group(sources)'
+      - '@group(configs)'
+    outputs:
+      - 'dist/**/*'
+
+  preview:
+    description: 'Preview the ERP production build'
+    command: 'vite'
+    args: ['preview']
+    deps: ['~:build']
+    preset: 'server'

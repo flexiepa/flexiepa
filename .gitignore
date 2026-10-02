@@ -1,0 +1,92 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build / output
+build/
+out/
+*.tsbuildinfo
+
+# Moon
+.moon/cache/
+.moon/docker/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Logs / debug
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test / coverage
+coverage/
+*.lcov
+.nyc_output/
+vitest.config.ts.timestamp-*
+
+# Caches
+.cache/
+.turbo/
+.eslintcache
+.stylelintcache
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.sublime-project
+*.sublime-workspace
+
+# Cargo / Rust
+# Keep Cargo.lock committed for apps (ERP binaries); ignore only for pure libs
+/target/
+**/target/
+debug/
+**/*.rs.bk
+*.pdb
+Cargo.lock.bak
+
+# Vite / TanStack Start / Solid
+.vite/
+dist/
+dist-ssr/
+dist-node/
+.output/
+.vinxi/
+.tanstack/
+.nitro/
+.wrangler/
+**/routeTree.gen.ts
+.vercel/
+.netlify/
+
+# Proto
+proto-*-install.log
+
+# Lefthook (local machine overrides)
+lefthook-local.yml
+
+# Misc
+*.local
+.tmp/
+.temp/

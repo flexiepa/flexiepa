@@ -1,0 +1,48 @@
+#:schema https://docs.cocogitto.io/cog-schema.json
+# https://docs.cocogitto.io/reference/config
+#
+# Conventional commits + SemVer are owned by cocogitto.
+# Git hooks are owned by lefthook (see lefthook.yml) — do not use [git_hooks] here.
+
+from_latest_tag = true
+ignore_merge_commits = true
+ignore_fixup_commits = true
+tag_prefix = "v"
+branch_whitelist = ["main"]
+
+# Allowed commit scopes (cog verify / cog commit --scope)
+scopes = [
+  "erp",       # frontend/apps/erp
+  "frontend",  # frontend workspace (shared packages, tooling)
+  "api",       # backend/bins/api
+  "backend",   # backend workspace / crates
+  "moon",      # moon / proto / lefthook / cog
+  "deps",      # dependency bumps
+  "docs",      # README and docs-only changes
+]
+
+[changelog]
+path = "CHANGELOG.md"
+template = "full_hash"
+
+# Separate SemVer tags per package (frontend-vX.Y.Z, backend-vX.Y.Z) plus a global vX.Y.Z.
+# cog bump --auto                         → bump changed packages + global
+# cog bump --package=frontend --auto      → frontend only
+# cog bump --package=backend --auto       → backend only
+# cog bump --version 0.1.0 --include-packages  → set all to 0.1.0 (first release)
+#
+# Package hooks run with cwd = package path and sync manifests before the tag commit.
+[monorepo.packages.frontend]
+path = "frontend"
+pre_bump_hooks = [
+  "pnpm -r exec npm pkg set version={{version}}",
+]
+
+[monorepo.packages.backend]
+path = "backend"
+pre_bump_hooks = [
+  # Sync [workspace.package] version (bins inherit via version.workspace = true)
+  """perl -i -pe 's/^version = ".*"/version = "{{version}}"/ if $. < 20' Cargo.toml""",
+  # Keep Cargo.lock package entry in sync
+  """perl -i -0pe 's/(name = "api"\\nversion = )"\\d+\\.\\d+\\.\\d+"/${1}"{{version}}"/' Cargo.lock""",
+]

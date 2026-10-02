@@ -1,0 +1,27 @@
+{
+  "name": "@flexiepa/erp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite dev",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json"
+  },
+  "dependencies": {
+    "@tanstack/solid-router": "catalog:",
+    "@tanstack/solid-start": "catalog:",
+    "solid-js": "catalog:"
+  },
+  "devDependencies": {
+    "@flexiepa/typescript-config": "workspace:*",
+    "@tanstack/devtools-vite": "catalog:",
+    "@tanstack/solid-devtools": "catalog:",
+    "@tanstack/solid-router-devtools": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-solid": "catalog:"
+  }
+}

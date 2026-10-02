@@ -1,0 +1,14 @@
+# https://moonrepo.dev/docs/config/workspace
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+projects:
+  - 'frontend/moon.yml'
+  - 'frontend/apps/*/moon.yml'
+  - 'frontend/packages/*/moon.yml'
+  - 'backend/moon.yml'
+  - 'backend/bins/*/moon.yml'
+  - 'backend/crates/*/moon.yml'
+
+vcs:
+  defaultBranch: 'main'
+  provider: 'github'

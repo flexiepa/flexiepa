@@ -1,0 +1,46 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+id: 'frontend'
+layer: 'tool'
+language: 'typescript'
+stack: 'frontend'
+tags: ['frontend']
+
+workspace:
+  inheritedTasks:
+    exclude:
+      - 'typecheck'
+
+tasks:
+  lint:
+    description: 'Lint the frontend workspace with oxlint'
+    command: 'oxlint'
+    args: ['.']
+    inputs:
+      - '@group(sources)'
+      - '@group(configs)'
+      - 'oxlint.config.ts'
+    options:
+      cache: false
+
+  format:
+    description: 'Format the frontend workspace with oxfmt'
+    command: 'oxfmt'
+    args: ['.']
+    inputs:
+      - '@group(sources)'
+      - '@group(configs)'
+      - 'oxfmt.config.ts'
+    options:
+      cache: false
+
+  format-check:
+    description: 'Check formatting with oxfmt'
+    command: 'oxfmt'
+    args: ['--check', '.']
+    inputs:
+      - '@group(sources)'
+      - '@group(configs)'
+      - 'oxfmt.config.ts'
+    options:
+      cache: false

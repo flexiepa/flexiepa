@@ -1,0 +1,19 @@
+# Inherited by Rust / backend projects
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+inheritedBy:
+  toolchains:
+    or: ['rust']
+  stacks: ['backend']
+  layers: ['application', 'library', 'tool']
+
+fileGroups:
+  sources:
+    - 'src/**/*.rs'
+    - 'Cargo.toml'
+  tests:
+    - 'tests/**/*.rs'
+    - 'benches/**/*.rs'
+
+env:
+  CARGO_TERM_COLOR: 'always'

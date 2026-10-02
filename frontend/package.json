@@ -1,0 +1,24 @@
+{
+  "name": "@flexiepa/frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "moon run erp:build",
+    "dev": "moon run erp:dev",
+    "format": "moon run frontend:format",
+    "format:check": "moon run frontend:format-check",
+    "lint": "moon run frontend:lint",
+    "lint:fix": "oxlint --fix .",
+    "typecheck": "moon run :typecheck"
+  },
+  "devDependencies": {
+    "eslint-plugin-solid": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=26.10.0"
+  },
+  "packageManager": "pnpm@12.8.2"
+}

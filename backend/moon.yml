@@ -1,0 +1,81 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+id: 'backend'
+layer: 'tool'
+language: 'rust'
+stack: 'backend'
+tags: ['backend', 'rust']
+
+fileGroups:
+  sources:
+    - 'bins/*/src/**/*.rs'
+    - 'bins/*/Cargo.toml'
+    - 'crates/*/src/**/*.rs'
+    - 'crates/*/Cargo.toml'
+    - 'Cargo.toml'
+    - 'Cargo.lock'
+    - 'rust-toolchain.toml'
+  tests:
+    - 'bins/*/tests/**/*.rs'
+    - 'bins/*/benches/**/*.rs'
+    - 'crates/*/tests/**/*.rs'
+    - 'crates/*/benches/**/*.rs'
+
+tasks:
+  check:
+    description: 'Typecheck the Cargo workspace'
+    command: 'cargo'
+    args: ['check', '--workspace']
+    inputs:
+      - '@group(sources)'
+    options:
+      cache: true
+
+  build:
+    description: 'Build the Cargo workspace'
+    command: 'cargo'
+    args: ['build', '--workspace']
+    inputs:
+      - '@group(sources)'
+    options:
+      cache: true
+
+  test:
+    description: 'Test the Cargo workspace'
+    command: 'cargo'
+    args: ['test', '--workspace']
+    inputs:
+      - '@group(sources)'
+      - '@group(tests)'
+    options:
+      cache: true
+
+  lint:
+    description: 'Lint the Cargo workspace with clippy'
+    command: 'cargo'
+    args: ['clippy', '--workspace', '--all-targets', '--', '-D', 'warnings']
+    inputs:
+      - '@group(sources)'
+      - '@group(tests)'
+    options:
+      cache: true
+
+  format:
+    description: 'Format the Cargo workspace with rustfmt'
+    command: 'cargo'
+    args: ['fmt', '--all']
+    inputs:
+      - '@group(sources)'
+      - '@group(tests)'
+    options:
+      cache: false
+
+  format-check:
+    description: 'Check Cargo workspace formatting'
+    command: 'cargo'
+    args: ['fmt', '--all', '--', '--check']
+    inputs:
+      - '@group(sources)'
+      - '@group(tests)'
+    options:
+      cache: true

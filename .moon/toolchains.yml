@@ -1,0 +1,24 @@
+# https://moonrepo.dev/docs/config/toolchain
+$schema: 'https://moonrepo.dev/schemas/toolchains.json'
+
+# Keep language versions in /.prototools; moon inherits them via versionFromPrototools (default).
+proto:
+  version: '0.62.3'
+
+javascript:
+  packageManager: 'pnpm'
+
+node: {}
+pnpm: {}
+
+typescript:
+  root: 'frontend'
+  syncProjectReferences: false
+
+rust:
+  # Inherit `rust = "…"` from /.prototools (single source of truth with proto)
+  syncToolchainConfig: true
+  addMsrvConstraint: true
+  components:
+    - rustfmt
+    - clippy

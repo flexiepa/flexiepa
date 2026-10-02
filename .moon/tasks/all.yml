@@ -1,0 +1,15 @@
+# Inherited by all projects
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+fileGroups:
+  configs:
+    - '*.config.{js,cjs,mjs,ts,mts}'
+    - 'tsconfig.json'
+    - 'tsconfig.*.json'
+    - 'package.json'
+  sources:
+    - 'src/**/*'
+    - 'public/**/*'
+  tests:
+    - 'tests/**/*'
+    - '**/__tests__/**/*'

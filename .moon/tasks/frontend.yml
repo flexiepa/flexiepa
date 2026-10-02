@@ -1,0 +1,30 @@
+# Inherited by TypeScript / frontend projects
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+inheritedBy:
+  toolchains:
+    or: ['typescript', 'javascript']
+  stacks: ['frontend']
+  layers: ['application', 'library', 'tool']
+
+fileGroups:
+  configs:
+    - '*.config.{js,cjs,mjs,ts,mts}'
+    - 'tsconfig.json'
+    - 'tsconfig.*.json'
+    - 'package.json'
+  sources:
+    - 'src/**/*.{ts,tsx,css}'
+    - 'public/**/*'
+
+tasks:
+  typecheck:
+    description: 'Typecheck with tsc --noEmit'
+    command: 'tsc'
+    args: ['--noEmit']
+    inputs:
+      - '@group(sources)'
+      - '@group(configs)'
+      - '/frontend/packages/typescript-config/**/*'
+    options:
+      cache: true

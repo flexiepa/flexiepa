@@ -1,0 +1,37 @@
+# https://lefthook.dev/configuration/
+# Local overrides: lefthook-local.yml (gitignored)
+
+min_version: 1.5.0
+
+pre-commit:
+  parallel: true
+  commands:
+    frontend-format:
+      root: frontend/
+      glob: '*.{js,jsx,ts,tsx,mjs,cjs,mts,cts}'
+      exclude:
+        - '*.gen.ts'
+      run: pnpm exec oxfmt {staged_files}
+      stage_fixed: true
+      priority: 10
+
+    frontend-lint:
+      root: frontend/
+      glob: '*.{js,jsx,ts,tsx,mjs,cjs,mts,cts}'
+      exclude:
+        - '*.gen.ts'
+      run: pnpm exec oxlint --fix {staged_files}
+      stage_fixed: true
+      priority: 20
+
+    rust-format:
+      root: backend/
+      glob: '*.rs'
+      run: cargo fmt -- {staged_files}
+      stage_fixed: true
+      priority: 10
+
+commit-msg:
+  commands:
+    conventional:
+      run: cog verify --file {1} --ignore-merge-commits --ignore-fixup-commits

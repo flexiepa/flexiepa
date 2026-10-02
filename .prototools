@@ -1,0 +1,25 @@
+# https://moonrepo.dev/docs/proto/config
+# Toolchain for flexiepa (Rust API + TanStack Start / Solid / Vite)
+
+node = "26.10.0"
+pnpm = "12.8.2"
+moon = "2.5.6"
+rust = "1.98.1"
+proto = "0.62.3"
+lefthook = "2.1.16"
+"cargo:cocogitto" = "7.0.0"
+
+# Use the npm that ships with the pinned Node version
+npm = "bundled"
+
+[settings]
+auto-install = true
+detect-strategy = "prefer-prototools"
+lockfile = true
+
+[tools.node]
+bundled-npm = true
+
+# Community plugin — lefthook is not a built-in proto tool
+[tools.lefthook]
+plugin = "https://raw.githubusercontent.com/ageha734/proto-plugins/refs/heads/master/toml/lefthook.toml"

@@ -1,0 +1,2 @@
+# Context modules live here (domain, shared infra, etc.).
+# Add crates under this directory and they join the workspace via `crates/*`.
