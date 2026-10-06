@@ -1,0 +1,11 @@
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+id: 'ui'
+layer: 'library'
+language: 'typescript'
+stack: 'frontend'
+tags: ['frontend', 'ui']
+
+tasks:
+  typecheck:
+    script: 'tsc --noEmit -p tsconfig.json'

@@ -8,6 +8,7 @@ export default defineConfig({
     '**/.vite/**',
     '**/pnpm-lock.yaml',
     '**/*.gen.ts',
+    '**/CHANGELOG.md',
   ],
   // Defaults already sort package.json keys; keep scripts sorted too
   sortPackageJson: {

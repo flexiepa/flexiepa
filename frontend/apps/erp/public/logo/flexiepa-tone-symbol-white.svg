@@ -1,0 +1,9 @@
+<svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title"><title>flexiepa logo</title>
+  <title id="title">flexiepa Tone logo</title>
+  <!-- Gravure tone scale: three ink-cell sizes. Navy / blue / amber. Optically centred. -->
+  <g id="symbol">
+    <circle cx="102" cy="154" r="48" fill="#ffffff"/>
+    <circle cx="138" cy="118" r="33" fill="#ffffff"/>
+    <circle cx="170" cy="86" r="20" fill="#ffffff"/>
+  </g>
+</svg>

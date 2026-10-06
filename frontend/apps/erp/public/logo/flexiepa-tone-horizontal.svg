@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 256" role="img" aria-labelledby="title">
+  <title id="title">flexiepa Tone horizontal lockup</title>
+  <g id="symbol">
+    <circle cx="102" cy="154" r="48" fill="#0E1730"/>
+    <circle cx="138" cy="118" r="33" fill="#2F6BFF"/>
+    <circle cx="170" cy="86" r="20" fill="#F5A524"/>
+  </g>
+  <g id="wordmark" fill="#0E1730">
+    <text x="248" y="154" font-family="'Geist', 'Geist Variable', ui-sans-serif, system-ui, sans-serif" font-size="78" font-weight="600" letter-spacing="-2.2">flexiepa</text>
+  </g>
+</svg>

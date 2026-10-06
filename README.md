@@ -4,7 +4,7 @@ Flexiepa is an ERP for running day-to-day business operations — inventory, sal
 
 | | |
 | --- | --- |
-| Frontend | Solid · TanStack Start (SPA) · Vite · pnpm · oxlint / oxfmt |
+| Frontend | Solid · TanStack Start (SPA) · Vite · Tailwind · pnpm · oxlint / oxfmt |
 | Backend | Axum · Cargo workspace |
 | Tooling | [proto](https://moonrepo.dev/proto) + [moon](https://moonrepo.dev) · [lefthook](https://lefthook.dev) · [cocogitto](https://docs.cocogitto.io) |
 
@@ -18,6 +18,7 @@ backend/                 Cargo workspace
   crates/                Shared Rust crates
 frontend/                pnpm workspace
   apps/erp/              ERP SPA
+  packages/ui/           Design system (Tailwind · Rhea · cn)
   packages/              Shared TypeScript packages
 .moon/                   moon projects & tasks
 lefthook.yml             Git hooks
@@ -62,7 +63,7 @@ cog commit feat -s erp "add invoice list"
 git commit -m "feat(erp): add invoice list"
 ```
 
-Scopes: `erp` · `frontend` · `api` · `backend` · `moon` · `deps` · `docs`  
+Scopes: `erp` · `ui` · `frontend` · `api` · `backend` · `moon` · `deps` · `docs`  
 Skip hooks: `LEFTHOOK=0 git commit …` · local overrides: `lefthook-local.yml`
 
 ## Versioning

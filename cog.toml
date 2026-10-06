@@ -13,6 +13,7 @@ branch_whitelist = ["main"]
 # Allowed commit scopes (cog verify / cog commit --scope)
 scopes = [
   "erp",       # frontend/apps/erp
+  "ui",        # frontend/packages/ui
   "frontend",  # frontend workspace (shared packages, tooling)
   "api",       # backend/bins/api
   "backend",   # backend workspace / crates

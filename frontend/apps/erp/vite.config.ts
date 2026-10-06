@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import { devtools } from '@tanstack/devtools-vite';
 import { tanstackStart } from '@tanstack/solid-start/plugin/vite';
 import { defineConfig } from 'vite';
@@ -20,5 +21,6 @@ export default defineConfig({
     }),
     // Solid's Vite plugin must come after Start's plugin
     viteSolid({ ssr: true }),
+    tailwindcss(),
   ],
 });
