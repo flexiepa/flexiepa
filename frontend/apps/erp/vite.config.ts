@@ -3,6 +3,7 @@ import { devtools } from '@tanstack/devtools-vite';
 import { tanstackStart } from '@tanstack/solid-start/plugin/vite';
 import { defineConfig } from 'vite';
 import viteSolid from 'vite-plugin-solid';
+import solidSVG from 'vite-solid-svg';
 
 export default defineConfig({
   server: {
@@ -19,6 +20,8 @@ export default defineConfig({
         enabled: true,
       },
     }),
+    // Transform *.svg?solid before Solid compiles JSX
+    solidSVG(),
     // Solid's Vite plugin must come after Start's plugin
     viteSolid({ ssr: true }),
     tailwindcss(),

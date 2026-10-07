@@ -6,6 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./button": "./src/components/button.tsx",
+    "./sidebar": "./src/components/sidebar.tsx",
     "./theme.css": "./src/styles/theme.css"
   },
   "scripts": {

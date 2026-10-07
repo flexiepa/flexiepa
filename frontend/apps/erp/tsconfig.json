@@ -1,7 +1,10 @@
 {
   "extends": "@flexiepa/typescript-config/solid.json",
   "compilerOptions": {
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"]
 }
