@@ -48,7 +48,7 @@ export function NavRail() {
       class="border-rail-border bg-rail relative z-30 hidden h-full w-12 shrink-0 flex-col items-center border-r transition-colors duration-200 sm:flex"
     >
       <a href="/" aria-label="flexiepa" class="flex size-12 items-center justify-center">
-        <Logo class="size-8" aria-hidden="true" />
+        <Logo class="size-6" aria-hidden="true" />
       </a>
 
       <div class="flex w-8 flex-col items-center gap-2 pt-4 pb-2">

@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256"><title>flexiepa logo</title><rect width="256" height="256" rx="57.6" fill="#0E1730"/><g transform="translate(-14.37 -33.5) scale(1.167)">
-  <title id="title">flexiepa Tone logo on dark</title>
-  <g id="symbol">
-    <circle cx="102" cy="154" r="48" fill="#F5F7FF"/>
-    <circle cx="138" cy="118" r="33" fill="#5B8DEF"/>
-    <circle cx="170" cy="86" r="20" fill="#F5A524"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">flexiepa Tone app icon</title>
+  <rect width="256" height="256" rx="57.6" fill="#0E1730"/>
+  <!-- Center cropped 172 artboard in 256: pad 42 -->
+  <g id="symbol" transform="translate(6 -6)">
+    <circle cx="100" cy="156" r="52" fill="#F5F7FF"/>
+    <circle cx="140" cy="116" r="36" fill="#5B8DEF"/>
+    <circle cx="174" cy="82" r="22" fill="#F5A524"/>
   </g>
-</g></svg>
+</svg>
