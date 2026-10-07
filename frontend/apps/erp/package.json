@@ -7,7 +7,8 @@
     "build": "vite build",
     "dev": "vite dev",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json"
+    "paraglide": "paraglide-js compile --project ./project.inlang",
+    "typecheck": "pnpm run paraglide && tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json"
   },
   "dependencies": {
     "@flexiepa/ui": "workspace:*",
@@ -20,6 +21,9 @@
   },
   "devDependencies": {
     "@flexiepa/typescript-config": "workspace:*",
+    "@inlang/paraglide-js": "^2.25.4",
+    "@inlang/plugin-m-function-matcher": "^2.2.16",
+    "@inlang/plugin-message-format": "^4.4.4",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/devtools-vite": "catalog:",
     "@tanstack/solid-devtools": "catalog:",

@@ -1,3 +1,4 @@
+import { getLocale } from '@/paraglide/runtime.js';
 import { TanStackDevtools } from '@tanstack/solid-devtools';
 import { HeadContent, Outlet, Scripts, createRootRoute, useRouter } from '@tanstack/solid-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/solid-router-devtools';
@@ -49,7 +50,7 @@ function RootComponent() {
 
 function RootDocument(props: Readonly<{ children: Solid.JSX.Element }>) {
   return (
-    <html lang="vi">
+    <html lang={getLocale()}>
       <head>
         <HydrationScript />
         <HeadContent />

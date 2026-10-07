@@ -1,3 +1,4 @@
+import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import tailwindcss from '@tailwindcss/vite';
 import { devtools } from '@tanstack/devtools-vite';
 import { tanstackStart } from '@tanstack/solid-start/plugin/vite';
@@ -15,6 +16,8 @@ export default defineConfig({
   plugins: [
     // Must be first — source inspection, console piping, production stripping (all on by default)
     devtools(),
+    // Cookie-based locale only — no urlPatterns / no router rewrite (SPA keeps canonical paths)
+    paraglideVitePlugin({ project: './project.inlang' }),
     tanstackStart({
       spa: {
         enabled: true,

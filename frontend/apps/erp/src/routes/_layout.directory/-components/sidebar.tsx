@@ -1,4 +1,5 @@
 import DirectoryIcon from '@/assets/modules/directory.svg?solid';
+import { m } from '@/paraglide/messages.js';
 import {
   Sidebar,
   SidebarContent,
@@ -14,7 +15,9 @@ import {
 import { Link } from '@tanstack/solid-router';
 import { For } from 'solid-js';
 
-const contactItems = [{ title: 'My contacts', to: '/directory/my-contacts' }] as const;
+const contactItems = [
+  { title: () => m.directory_my_contacts(), to: '/directory/my-contacts' },
+] as const;
 
 export function DirectorySidebar() {
   return (
@@ -22,13 +25,13 @@ export function DirectorySidebar() {
       <SidebarHeader>
         <div class="text-sidebar-foreground flex h-8 items-center gap-2 px-2 text-base font-medium">
           <DirectoryIcon class="size-6 shrink-0" aria-hidden="true" />
-          <span>Directory</span>
+          <span>{m.directory_title()}</span>
         </div>
       </SidebarHeader>
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Contacts</SidebarGroupLabel>
+          <SidebarGroupLabel>{m.directory_contacts()}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <For each={contactItems}>
@@ -43,7 +46,7 @@ export function DirectorySidebar() {
                         'data-active': true,
                       }}
                     >
-                      <span>{item.title}</span>
+                      <span>{item.title()}</span>
                     </Link>
                   </SidebarMenuItem>
                 )}

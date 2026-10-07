@@ -7,14 +7,26 @@ stack: 'frontend'
 tags: ['frontend', 'solid', 'tanstack-start']
 
 tasks:
+  paraglide:
+    description: 'Compile Paraglide message catalogs'
+    command: 'paraglide-js'
+    args: ['compile', '--project', './project.inlang']
+    inputs:
+      - 'messages/**/*'
+      - 'project.inlang/**/*'
+    outputs:
+      - 'src/paraglide/**/*'
+
   typecheck:
     script: 'tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json'
+    deps: ['~:paraglide']
 
   dev:
     description: 'Start the ERP TanStack Start dev server'
     command: 'vite'
     args: ['dev']
     preset: 'server'
+    deps: ['~:paraglide']
 
   build:
     description: 'Build the ERP app (SPA mode)'
@@ -24,6 +36,8 @@ tasks:
     inputs:
       - '@group(sources)'
       - '@group(configs)'
+      - 'messages/**/*'
+      - 'project.inlang/**/*'
     outputs:
       - 'dist/**/*'
 
